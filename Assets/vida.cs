@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class vida : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int vida = 100;
+
+    public void TomarDano()
     {
-        
+        vida = vida- 20;
+
+        Debug.Log("Vida: " + vida);
+
+        if (vida <= 0)
+        {
+            vida = 0;
+            Morrer();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Morrer()
     {
-        
+        Debug.Log("O personagem morreu!");
+
+        // Desativa o personagem
+        gameObject.SetActive(false);
     }
 }
